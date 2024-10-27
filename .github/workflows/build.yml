@@ -13,7 +13,7 @@ jobs:
 
             - name: test
               run:
-                docker compose run test
+                docker compose run app
             
                 
 
