@@ -10,6 +10,7 @@ jobs:
 
     build-push:
         if:   github.event_name == 'push'
+        needs: test
         runs-on: ubuntu-latest
         steps:
             - name: checkout code
@@ -38,7 +39,7 @@ jobs:
 
     test:
         if:   github.event_name == 'push' || 'pull_request' && github.ref == 'refs/heads/main'  
-        needs: build-push
+        
         runs-on: ubuntu-latest
         steps:
             - name: checkoutcode
