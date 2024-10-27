@@ -47,7 +47,7 @@ jobs:
 
             - name: test
               run:
-                docker compose run app                    
+                docker compose run apptest                    
 
 
 

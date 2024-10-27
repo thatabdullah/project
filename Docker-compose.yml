@@ -25,6 +25,11 @@ services:
     - .:/code
     enviorment:
       - REDIS_HOST=redis  
+
+  apptest:
+    build: .
+    command: unittest    
+    
 volumes:
   data:     
 
