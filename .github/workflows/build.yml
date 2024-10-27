@@ -4,16 +4,7 @@ on: [push, pull_request]
   
 
 jobs:
-    test:
-        if:   github.event_name == 'push' || 'pull_request' && github.ref == 'refs/heads/master'  
-        runs-on: ubuntu-latest
-        steps:
-            - name: checkoutcode
-              uses: actions/checkout@v3
-
-            - name: test
-              run:
-                docker compose run app
+    
             
                 
 
@@ -44,6 +35,17 @@ jobs:
                     cache-from:
                         ithatabdullah/project:latest    
 
+
+    test:
+        if:   github.event_name == 'push' || 'pull_request' && github.ref == 'refs/heads/master'  
+        runs-on: ubuntu-latest
+        steps:
+            - name: checkoutcode
+              uses: actions/checkout@v3
+
+            - name: test
+              run:
+                docker compose run app                    
 
 
 
