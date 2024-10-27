@@ -1,0 +1,25 @@
+services:
+  redis:
+    image: redis
+    volumes:
+      - ./redis-data:/data
+
+
+  mysql:
+    image: mysql
+    environment:
+      - MYSQL_DATABASE: mydatabase
+      - MYSQL_USER: user
+      - MYSQL_PASSWORD: password
+
+
+
+  app:
+    depends_on:
+      - mysql
+    build: .
+    port: 5000:5000
+    volumes:
+    - .:/code
+    enviorment:
+      - REDIS_HOST=redis  
