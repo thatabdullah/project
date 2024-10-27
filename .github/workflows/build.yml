@@ -32,12 +32,13 @@ jobs:
                 tags: |
                     ithatabdullah/project:latest  
                     ithatabdullah/project:${{ github.sha }} 
-                    cache-from:
+                cache-from:
                         ithatabdullah/project:latest    
 
 
     test:
-        if:   github.event_name == 'push' || 'pull_request' && github.ref == 'refs/heads/master'  
+        if:   github.event_name == 'push' || 'pull_request' && github.ref == 'refs/heads/main'  
+        needs: build-push
         runs-on: ubuntu-latest
         steps:
             - name: checkoutcode
