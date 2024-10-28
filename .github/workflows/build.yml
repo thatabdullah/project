@@ -47,7 +47,7 @@ jobs:
 
             - name: test
               run:
-                docker compose -f docker-compose.yml run apptest                    
+                docker compose -f Docker-compose.yml run apptest                    
 
 
 
