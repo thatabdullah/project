@@ -38,7 +38,7 @@ jobs:
 
 
     test:
-        if:   github.event_name == 'push' || 'pull_request' && github.ref == 'refs/heads/main'  
+        if:   github.event_name == 'push' || 'pull_request'   
         
         runs-on: ubuntu-latest
         steps:
