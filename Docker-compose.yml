@@ -5,12 +5,15 @@ services:
       - ./redis-data:/data
 
 
-  mysql:
+  db:
     image: mysql
+    ports:
+      - '3306:3306'
     environment:
-      - MYSQL_DATABASE: mydatabase
-      - MYSQL_USER: user
-      - MYSQL_PASSWORD: password
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
     volumes:
       - data:/var/lib/mysql  
 
@@ -18,17 +21,18 @@ services:
 
   app:
     depends_on:
-      - mysql
+      - db
     build: .
-    port: 5000:5000
+    ports: 
+     - 5000:5000
     volumes:
     - .:/code
-    enviorment:
+    environment:
       - REDIS_HOST=redis  
 
   apptest:
     build: .
-    command: unittest    
+    command:  python -m unittest    
     
 volumes:
   data:     
