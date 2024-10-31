@@ -18,7 +18,7 @@ jobs:
               run: |
                 chmod 600 ~/ssh/capstonekey.pem
                 ssh -i ~/ssh/capstonekey.pem $SSH_USERNAME@${{matrix.http}}
-                cd /project
+                cd root/project
                 docker compose up --no-deps --pull= always -d --build app && docker image prune -a --filter "until=168h"
 
 
