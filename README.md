@@ -169,5 +169,5 @@ To complete your project submission, please provide the URLs for the following r
 
 
 ### Bonus Section
-Create an additional Terraform file to deploy the application on AWS Cloud.xX
+Create an additional Terraform file to deploy the application on AWS Cloud.xXX
 
