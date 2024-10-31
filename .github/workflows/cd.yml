@@ -15,7 +15,7 @@ jobs:
             - name: deploying app on http server
               run: |
                 chmod 600 ~/ssh/capstonekey.pem
-                ssh -i ~/ssh/capstonekey.pem root@${{matrix.http}} " cd /project && docker compose -f Docker-compose.yml --no-deps --pull=always -d run app && docker image prune -a --filter "until=168h" "
+                ssh -i ~/ssh/capstonekey.pem root@${{matrix.http}} " cd /project && docker image pull ithatabdullah/project:latest && docker compose -f Docker-compose.yml -d up && docker image prune -a --filter "until=168h" "
 
 
                     
