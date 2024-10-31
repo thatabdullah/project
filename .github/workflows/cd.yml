@@ -17,7 +17,7 @@ jobs:
                 chmod 600 ~/ssh/capstonekey.pem
                 ssh -i ~/ssh/capstonekey.pem root@${{matrix.http}} "
                 cd /project 
-                docker compose -f Docker-compose.yml --no-deps --pull= always -d run app && docker image prune -a --filter "until=168h" "
+                docker compose -f Docker-compose.yml --pull= always -d run app && docker image prune -a --filter "until=168h" "
 
 
                     
