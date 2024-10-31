@@ -1,0 +1,25 @@
+name: deploy
+
+on:
+    push:
+        branches:
+            'main'
+
+jobs:
+    runner:
+        runs-on: self-hosted
+        strategy:
+            matrix:
+                http: ["10.0.2.150","10.0.2.149"]
+        steps:
+            - name: deploying app on http server
+              env:
+                SSH_USERNAME: ${{ secrets.SSH_USERNAME }}
+              run: |
+                chmod 600 ~/ssh/capstonekey.pem
+                ssh -i ~/ssh/capstonekey.pem $SSH_USERNAME@${{matrix.http}}
+                cd /project
+                docker compose up --no-deps --pull= always -d --build app && docker image prune -a --filter "until=168h"
+
+
+                    
