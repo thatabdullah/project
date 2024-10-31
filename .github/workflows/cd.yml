@@ -13,8 +13,6 @@ jobs:
                 http: ["10.0.2.150","10.0.2.149"]
         steps:
             - name: deploying app on http server
-              env:
-                SSH_USERNAME: ${{ secrets.SSH_USERNAME }}
               run: |
                 chmod 600 ~/ssh/capstonekey.pem
                 ssh -i ~/ssh/capstonekey.pem root@${{matrix.http}} "
