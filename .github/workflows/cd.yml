@@ -19,7 +19,8 @@ jobs:
                 chmod 600 ~/ssh/capstonekey.pem
                 ssh -i ~/ssh/capstonekey.pem $SSH_USERNAME@${{matrix.http}}
                 echo "successfully on http server"
-                docker compose up --no-deps --pull= always -d --build app && docker image prune -a --filter "until=168h"
+                docker --version
+        ##docker compose up --no-deps --pull= always -d --build app && docker image prune -a --filter "until=168h"
 
 
                     
