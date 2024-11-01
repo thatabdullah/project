@@ -13,8 +13,7 @@ jobs:
                 http: ["10.0.2.150","10.0.2.149"]
         steps:
             - name: deploying app on http server
-              run: |
-                chmod 700 ~/ssh/capstonekey.pem
+              run: 
                 ssh -i ~/ssh/capstonekey.pem root@${{matrix.http}} " cd /project && docker image pull ithatabdullah/project:latest && docker compose -f Docker-compose.yml run --no-deps -d app  && docker image prune -f -a --filter "until=168h" "
 
 
