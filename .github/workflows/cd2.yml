@@ -1,12 +1,14 @@
 name: deploy
 
 on:
-    push:
-        branches:
-            'main'
-
+    workflow_run:
+        workflows: ["build"]
+        branches: [main]
+        types:
+        - completed
 jobs:
     runner:
+        if: ${{ github.event.workflow_run.conclusion == 'success' }}
         runs-on: self-hosted
         strategy:
             matrix:
