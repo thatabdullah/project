@@ -17,7 +17,7 @@ This Flask application serves as a simple web interface for adding users and vie
   - Contains unit test to verify that the Flask application is working correctly.
   - Tests the home page route (`/`) to ensure it returns a successful response.
   - The test can be run using command: `python test_app.py`
-
+X
 - **templates/index.html**: 
   - The homepage HTML template.
   - Displays a form that allows users to input and submit a username.
