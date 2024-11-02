@@ -14,7 +14,7 @@ jobs:
         steps:
             - name: deploying app on http server
               run: 
-                ssh -i ~/ssh/capstonekey.pem -o StrictHostKeyChecking=no root@${{matrix.http}} " cd /project && docker image pull ithatabdullah/project:latest && docker compose -f Docker-compose.yml run --no-deps -t -d app  && docker image prune -f -a --filter "until=168h" "
+                ssh -i ~/ssh/capstonekey.pem -o StrictHostKeyChecking=no root@${{matrix.http}} " cd /project && docker image pull ithatabdullah/project:latest && docker compose -f Docker-compose.yml run --no-deps -d app  && docker image prune -f -a --filter "until=168h" "
 
 
                     

@@ -27,7 +27,7 @@ services:
     image: ithatabdullah/project:latest
    
     ports: 
-     - 80:5000
+     - 5000:5000
     volumes:
     - .:/code
     environment:
